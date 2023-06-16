@@ -23,9 +23,40 @@ class DishesController {
       .first();
 
     if (!category) {
-      throw new AppError("Esta categoria não existe.", 401);
-    }
+      if (
+        (category_name != "Refeição") |
+        (category_name != "Bebidas") |
+        (category_name != "Sobremesas")
+      ) {
+        throw new AppError("Esta categoria não existe.", 400);
+      }
+      const insert = await knex("category").insert({
+        name: category_name,
+      });
+      const [dish_id] = await knex("dishes").insert({
+        name,
+        description,
+        price,
+        avatar_dish: filename,
+        category_id: insert[0],
+      });
 
+      const ingredientsArray = ingredients.split(",");
+
+      const ingredientsInsert = ingredientsArray.map((ingredient) => {
+        return {
+          dish_id,
+          name: ingredient.trim(),
+        };
+      });
+
+      await knex("ingredients")
+        .insert(ingredientsInsert)
+        .groupBy("dish_id")
+        .orderBy("name");
+
+      return response.status(200).json();
+    }
     const [dish_id] = await knex("dishes").insert({
       name,
       description,

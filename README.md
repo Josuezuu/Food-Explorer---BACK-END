@@ -24,7 +24,7 @@ Por fim, o usuário admin consegue visualizar os pedidos gerados pelos clientes 
 
 # INSTALAÇÃO:
 
-Para rodar o projeto em sua máquina, utilize o comando "git clone", navegue até o diretório do projeto e utilize o comando "npm install" para instalar as dependencias do projeto.
+Para rodar o projeto em sua máquina, utilize o comando "git clone https://github.com/Josuezuu/Food-Explorer---BACK-END.git", navegue até o diretório do projeto e utilize o comando "npm install" para instalar as dependencias do projeto.
 Para iniciar, utilize o comando "npm run dev".
 Para atualizar as tabelas no banco de dados, utilize o comando "npm run migrate".
 

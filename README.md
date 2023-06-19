@@ -39,9 +39,7 @@ login: admin@admin.com
 senha: admin1
 
 Caso queira definir um novo administrador, basta executar o comando abaixo na query do seu banco de dados:
-UPDATE users
-SET isAdmin = true
-WHERE id = 1;
+![image](https://github.com/Josuezuu/Food-Explorer---BACK-END/assets/108033077/8539e5be-2e7b-4204-b426-12ace2451de6)
 
 **lembrando que o ID varia de acordo com o usuário selecionado.
 
